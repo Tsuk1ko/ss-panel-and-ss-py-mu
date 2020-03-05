@@ -41,20 +41,21 @@ install_ss_panel_mod_v3(){
 	/sbin/service crond restart
 }
 Libtest(){
+	libAddr='https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.13.tar.gz'
 	#自动选择下载节点
-	GIT='raw.githubusercontent.com'
-	LIB='download.libsodium.org'
-	GIT_PING=`ping -c 1 -w 1 $GIT|grep time=|awk '{print $7}'|sed "s/time=//"`
-	LIB_PING=`ping -c 1 -w 1 $LIB|grep time=|awk '{print $7}'|sed "s/time=//"`
-	echo "$GIT_PING $GIT" > ping.pl
-	echo "$LIB_PING $LIB" >> ping.pl
-	libAddr=`sort -V ping.pl|sed -n '1p'|awk '{print $2}'`
-	if [ "$libAddr" == "$GIT" ];then
-		libAddr='https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.13.tar.gz'
-	else
-		libAddr='https://download.libsodium.org/libsodium/releases/libsodium-1.0.13.tar.gz'
-	fi
-	rm -f ping.pl		
+	#GIT='raw.githubusercontent.com'
+	#LIB='download.libsodium.org'
+	#GIT_PING=`ping -c 1 -w 1 $GIT|grep time=|awk '{print $7}'|sed "s/time=//"`
+	#LIB_PING=`ping -c 1 -w 1 $LIB|grep time=|awk '{print $7}'|sed "s/time=//"`
+	#echo "$GIT_PING $GIT" > ping.pl
+	#echo "$LIB_PING $LIB" >> ping.pl
+	#libAddr=`sort -V ping.pl|sed -n '1p'|awk '{print $2}'`
+	#if [ "$libAddr" == "$GIT" ];then
+	#	libAddr='https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.13.tar.gz'
+	#else
+	#	libAddr='https://download.libsodium.org/libsodium/releases/libsodium-1.0.13.tar.gz'
+	#fi
+	#rm -f ping.pl		
 }
 Get_Dist_Version()
 {
